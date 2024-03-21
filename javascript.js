@@ -1,23 +1,48 @@
-let usuarionombre = prompt("Hola! cuál es tu nombre?");
-let usuariolocation = prompt("Bueno "+ usuarionombre+ " , desde qué país nos visitas?");
-let usuarioedad = prompt("¿Qué edad tienes?");
-if (usuarioedad>=18){
-    prompt("Se ha verificado tu mayoría de edad, contarás con beneficios. Escribe ok para continuar.");
-};
-if (usuarioedad<18){
-    prompt("Eres menor de edad, si vienes acompañado de un adulto mayor de edad accederás a nuestros grandes descuentos. Aún deseas ingresar a la página?");
+/*Primero vamos a dividir los pasos
+1 preguntamos el nombre
+2 pregunt edad* la cuál debemos verificas y pasar de string a número(?)
+3 validar edad requisito >=18
+4 en if validad edad = usuario edad se cumple entonces 
+5 haremos sin el confirm y ya después, luego lo aplicaremos
+gt - confirm - lab07*/
+
+/* Información usuario, puedo hacerlo por separado como antes pero esta vez lo agrupé todo en 1*/
+function infousuario(){
+    let usuarionombre = prompt("Hola! cuál es tu nombre?");
+    let usuariolocation = prompt("Bueno "+ usuarionombre+ " , desde qué país nos visitas?");
+    let usuarioedad = parseInt(usuarioedad);
+    let usuarioedad = prompt("¿Qué edad tienes?");
+}
+function msjbienvenida(nombre){
+    document.write("Welcome "+ nombre + "!" + "<br>");
 }
 
+/*no olvidemos edad* esto separado porque tenemos condición*/
+function validaredad(edad){
+    return edad >=18;
+}
+function dscto(edad){
+    document.write("Se ha confirmado tu mayoría de edad, así que ¡tendrás 35% de descuento! " + "<br>");
+}
+function msjmenoredad(nombre){
+    if(confirm("Eres menor de edad. Si vienes acompañado de un adulto accederás a nuestros grandes descuentos. ¿Aún deseas ingresar a la página?")){
+        document.write("Welcome "+ nombre + "<br>");
+    }
 
-document.write("Welcome "+usuarionombre + "<br>");
-if (usuarioedad>=18){
-    document.write("Se ha confirmado tu mayoría de edad, así que tedrás 35% de descuento. "+"<br>");
-};
-if (usuariolocation=="peru" || usuariolocation=="Peru" || usuariolocation=="Perú"){
-    document.write("Además, todos los nacionales tienen 20% de descuento adicional ¡Felicitaciones! Accede a nuestra promoción presentando tu dni.")
-};
+}
 
+if (validaredad(usuarioedad)){
+    msjbienvenida(usuarionombre);
+    dscto(usuarionombre);
+} else {
+    msjmenoredad(usuarioedad);
+}
 
+/*usuarioedad dentro de validar edad porque eso va a verificar que cumpla la condición que nos retorne mayor igual a 18 tb podríamos hacerlo poniendo let edad..*/
+/*si es vdro q retorno >=18*/
+/*regresa al principal sino*/
+
+infousuario();
 
 
 
